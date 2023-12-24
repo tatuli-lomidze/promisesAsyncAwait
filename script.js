@@ -1,9 +1,9 @@
-// delay - promise
+// // delay - promise
 
 function mySetTimeout(delay) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (Math.random() > 0.1) {
+        if (Math.random() > 0.3) {
           resolve("delay")
         } else {
           reject("fail delay")
@@ -16,7 +16,7 @@ function mySetTimeout(delay) {
     .then((res) => console.log(res))
     .catch((err) => console.error(err))
 
-// promise async/await
+// // promise async/await
 
 function makeToys(duration) {
   return new Promise((resolve, reject) => {
@@ -34,7 +34,7 @@ function sellToys(status, time) {
   return new Promise((resolve, reject) => {
     if (status === 'undefected') {
         setTimeout(() => {
-          if (Math.random() > 0.7) {
+          if (Math.random() > 0.5) {
             resolve('sold');
           } else {
             reject('was not sold');
@@ -58,22 +58,60 @@ function deliverToys(deadline) {
 
 makeToys(3000)
   .then((status) => sellToys(status, 1000))
-  .then((res) => console.log(res))
+  .then((ress) => console.log(ress))
   .then((deadline) => deliverToys(2000))
-  .then((res) => console.log(res))
+  .then((ress) => console.log(ress))
   .catch((err) => console.log(err));
 
 // async await
+
+
+    
+
+
+// function delay(time) {
+//     return new Promise(resolve => setTimeout(resolve, time));
+//   }
   
-  async function createToy() {
-    try {
-      const status = await makeToys(3000);
-      await sellToys(status, 1000);
-      const deliveryResult = await deliverToys(2000);
-      console.log(deliveryResult);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+//   async function makeToys(duration) {
+//     await delay(duration);
+//     if (Math.random() > 0.3) {
+//       return "undefected";
+//     } else {
+//       return "defected";
+//     }
+//   }
   
-  createToy();
+//   async function sellToys(status, time) {
+//     await delay(time);
+//     if (status === "undefected") {
+//       if (Math.random() > 0.5) {
+//         return "sold";
+//       } else {
+//         throw "was not sold";
+//       }
+//     } 
+//   }
+  
+//   async function deliverToys(deadline) {
+//     await delay(deadline);
+//     if (Math.random() > 0.5) {
+//       return "Toy is delivered";
+//     } else {
+//       throw "Toy was not delivered";
+//     }
+//   }
+  
+//   async function createToy() {
+//     try {
+//       const status = await makeToys(3000);
+//       const deadline = await sellToys(status, 1000);
+//       const result = await deliverToys(2000);
+//       console.log(result);
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   }
+  
+//   createToy();
+  
